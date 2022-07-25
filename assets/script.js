@@ -3,6 +3,7 @@ const scoreBox = document.querySelector('.score_box');
 const questionText = document.querySelector('.question_text');
 const optionList = document.querySelector('.option_list');
 const question_index = document.querySelector('.question-index');
+const point = document.querySelector('.point');
 
 const correctSound = document.querySelector('audio');
 const incorrectSound = document.querySelector('.incorrect-sound');
@@ -87,7 +88,7 @@ function startQuiz() {
     startTimer(10);
     timeWidthLine(10);
     nextBtn.classList.remove('show');
-
+    point.textContent = localStorage.getItem('score');
     displayQuestions(quiz.getQuestions());
     displayQuestionCount(quiz.questionIndex + 1, quiz.questions.length)
 }
@@ -109,8 +110,11 @@ function nextQuiz() {
         clearInterval(counter);
         clearInterval(counterLine);
         quizBox.classList.remove('active'); 
-        scoreBox.classList.add('active'); 
-        quiz.displayScore(quiz.questions.length, quiz.score)
+        scoreBox.classList.add('active');  
+
+        quiz.displayScore(quiz.questions.length, quiz.score);
+
+        localStorage.setItem('score', quiz.score);
     }
 }
 
