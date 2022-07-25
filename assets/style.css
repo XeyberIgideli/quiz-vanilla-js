@@ -124,6 +124,7 @@ body {
 .card-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 /* Score Box */
@@ -149,4 +150,13 @@ body {
 }
 .score_box i {
     font-size: 90px;
+}
+.right-footer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.point {
+    color: #FFD33D;
+    font-weight: 600;
 }
